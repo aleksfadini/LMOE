@@ -1,0 +1,207 @@
+[gd_scene load_steps=11 format=2]
+
+[ext_resource path="res://scripts/StartMenu.gd" type="Script" id=1]
+[ext_resource path="res://themes/bigfonttheme.tres" type="Theme" id=2]
+[ext_resource path="res://scenes/RegularButton.tscn" type="PackedScene" id=3]
+[ext_resource path="res://themes/smalltext.tres" type="DynamicFont" id=4]
+[ext_resource path="res://sprites/menunormal.png" type="Texture" id=5]
+[ext_resource path="res://sprites/menupressed.png" type="Texture" id=6]
+[ext_resource path="res://sprites/menufocused.png" type="Texture" id=7]
+
+[sub_resource type="CanvasItemMaterial" id=1]
+
+render_priority = 0
+blend_mode = 1
+light_mode = 0
+
+[sub_resource type="CanvasItemMaterial" id=2]
+
+render_priority = 0
+blend_mode = 1
+light_mode = 0
+
+[sub_resource type="Theme" id=3]
+
+default_font = ExtResource( 4 )
+_sections_unfolded = [ "Font", "Resource", "Settings" ]
+
+[node name="StartMenu" type="CanvasLayer" index="0"]
+
+layer = 1
+offset = Vector2( 0, 0 )
+rotation = 0.0
+scale = Vector2( 1, 1 )
+transform = Transform2D( 1, 0, 0, 1, 0, 0 )
+script = ExtResource( 1 )
+_sections_unfolded = [ "Anchor", "Margin" ]
+
+[node name="CenterContainer" type="CenterContainer" parent="." index="0"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 0
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+use_top_left = false
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CenterContainer" index="0"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 30.0
+margin_top = 49.0
+margin_right = 150.0
+margin_bottom = 271.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 1
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+alignment = 0
+
+[node name="TitleImage" type="TextureRect" parent="CenterContainer/VBoxContainer" index="0"]
+
+material = SubResource( 1 )
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_right = 120.0
+margin_bottom = 120.0
+rect_min_size = Vector2( 80, 120 )
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 1
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+theme = ExtResource( 2 )
+stretch_mode = 0
+_sections_unfolded = [ "Material", "Rect", "Theme" ]
+
+[node name="RichTextLabel" type="RichTextLabel" parent="CenterContainer/VBoxContainer/TitleImage" index="0"]
+
+light_mask = 31775
+material = SubResource( 2 )
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = true
+mouse_filter = 0
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+theme = ExtResource( 2 )
+bbcode_enabled = true
+bbcode_text = "[center]1
+ Minute [/center]
+[center]Doom[/center]"
+visible_characters = -1
+percent_visible = 1.0
+meta_underlined = true
+tab_size = 4
+text = "1
+ Minute 
+Doom"
+scroll_active = true
+scroll_following = false
+selection_enabled = false
+override_selected_font_color = false
+_sections_unfolded = [ "BBCode", "Margin", "Material", "Theme", "Visibility" ]
+
+[node name="StartButtonContainer" parent="CenterContainer/VBoxContainer" index="1" instance=ExtResource( 3 )]
+
+[node name="HelpButtonContainer" type="CenterContainer" parent="CenterContainer/VBoxContainer" index="2"]
+
+editor/display_folded = true
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_top = 158.0
+margin_right = 120.0
+margin_bottom = 188.0
+rect_min_size = Vector2( 120, 30 )
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 0
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+use_top_left = false
+_sections_unfolded = [ "Rect" ]
+
+[node name="HelpButton" type="TextureButton" parent="CenterContainer/VBoxContainer/HelpButtonContainer" index="0"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_right = 120.0
+margin_bottom = 30.0
+rect_min_size = Vector2( 120, 30 )
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+focus_mode = 2
+mouse_filter = 0
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+theme = SubResource( 3 )
+toggle_mode = false
+enabled_focus_mode = 2
+shortcut = null
+group = null
+texture_normal = ExtResource( 5 )
+texture_pressed = ExtResource( 6 )
+texture_hover = ExtResource( 7 )
+texture_focused = ExtResource( 7 )
+_sections_unfolded = [ "Material", "Textures", "Theme", "custom_fonts" ]
+
+[node name="HelpLabel" type="RichTextLabel" parent="CenterContainer/VBoxContainer/HelpButtonContainer" index="1"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 20.0
+margin_top = 7.0
+margin_right = 100.0
+margin_bottom = 22.0
+rect_min_size = Vector2( 80, 15 )
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = true
+mouse_filter = 2
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+theme = SubResource( 3 )
+bbcode_enabled = true
+bbcode_text = "[center]help[/center]"
+visible_characters = -1
+percent_visible = 1.0
+meta_underlined = true
+tab_size = 4
+text = "help"
+scroll_active = false
+scroll_following = false
+selection_enabled = false
+override_selected_font_color = false
+_sections_unfolded = [ "BBCode", "Focus", "Mouse", "Rect", "Theme" ]
+
+[node name="TrophiesButtonContainer" parent="CenterContainer/VBoxContainer" index="3" instance=ExtResource( 3 )]
+
+margin_top = 192.0
+margin_bottom = 222.0
+
+

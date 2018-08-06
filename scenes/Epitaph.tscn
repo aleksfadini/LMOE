@@ -1,0 +1,285 @@
+[gd_scene load_steps=6 format=2]
+
+[ext_resource path="res://scripts/Epitaph.gd" type="Script" id=1]
+[ext_resource path="res://sprites/Epitaph.png" type="Texture" id=2]
+[ext_resource path="res://scripts/BGImage.gd" type="Script" id=3]
+[ext_resource path="res://themes/text.tres" type="Theme" id=4]
+[ext_resource path="res://scenes/RegularButton.tscn" type="PackedScene" id=5]
+
+[node name="Epitaph" type="Node"]
+
+script = ExtResource( 1 )
+more_tr_text = [ "You spent most of the last sixty seconds of Earth", "blah blah", "blah,blabh", "blah blah, blah blahbLU" ]
+less_tr_text = [ "You allowed yourself for only a few brief instants to be", "blah blah", "blah,blabh", "blah blah, blah blahbLU" ]
+
+[node name="BGContainer" type="Container" parent="." index="0"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_right = 40.0
+margin_bottom = 40.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 0
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+_sections_unfolded = [ "Material", "Rect" ]
+
+[node name="BGImage" type="Sprite" parent="BGContainer" index="0"]
+
+texture = ExtResource( 2 )
+vframes = 2
+hframes = 6
+script = ExtResource( 3 )
+_sections_unfolded = [ "Animation", "Material", "Offset", "Region", "Transform" ]
+bg_repeat = "once"
+
+[node name="MarginContainer" type="MarginContainer" parent="." index="1"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 0
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+custom_constants/margin_right = 10
+custom_constants/margin_top = 10
+custom_constants/margin_left = 10
+custom_constants/margin_bottom = 10
+_sections_unfolded = [ "Margin", "Material", "Rect", "custom_constants" ]
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer" index="0"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 10.0
+margin_top = 10.0
+margin_right = 170.0
+margin_bottom = 330.0
+rect_min_size = Vector2( 160, 320 )
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 1
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 3
+size_flags_vertical = 1
+custom_constants/separation = 0
+alignment = 0
+_sections_unfolded = [ "Grow Direction", "Margin", "Rect", "Size Flags", "custom_constants" ]
+
+[node name="DeathJoke" type="TextureRect" parent="MarginContainer/VBoxContainer" index="0"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_right = 160.0
+margin_bottom = 80.0
+rect_min_size = Vector2( 140, 80 )
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 1
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+stretch_mode = 0
+_sections_unfolded = [ "Grow Direction", "Margin", "Rect" ]
+
+[node name="DialogText" type="RichTextLabel" parent="MarginContainer/VBoxContainer/DeathJoke" index="0"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_right = -20.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = true
+mouse_filter = 0
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+theme = ExtResource( 4 )
+bbcode_enabled = true
+bbcode_text = "Rumble.
+Earthquake?"
+visible_characters = -1
+percent_visible = 1.0
+meta_underlined = true
+tab_size = 4
+text = "Rumble.
+Earthquake?"
+scroll_active = false
+scroll_following = false
+selection_enabled = false
+override_selected_font_color = false
+_sections_unfolded = [ "BBCode", "Rect", "Theme" ]
+
+[node name="ShowTextDelay" type="Timer" parent="MarginContainer/VBoxContainer/DeathJoke" index="1"]
+
+process_mode = 1
+wait_time = 0.02
+one_shot = false
+autostart = true
+
+[node name="SecondSentenceDelay" type="Timer" parent="MarginContainer/VBoxContainer/DeathJoke" index="2"]
+
+process_mode = 1
+wait_time = 1.0
+one_shot = false
+autostart = true
+
+[node name="PlaceHolder" type="TextureRect" parent="MarginContainer/VBoxContainer" index="1"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_top = 80.0
+margin_right = 160.0
+margin_bottom = 90.0
+rect_min_size = Vector2( 120, 10 )
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 1
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+stretch_mode = 0
+_sections_unfolded = [ "Grow Direction", "Margin", "Rect" ]
+
+[node name="MoreTraits" type="TextureRect" parent="MarginContainer/VBoxContainer" index="2"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_top = 90.0
+margin_right = 160.0
+margin_bottom = 160.0
+rect_min_size = Vector2( 120, 70 )
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 1
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+stretch_mode = 0
+_sections_unfolded = [ "Grow Direction", "Rect" ]
+
+[node name="DialogText" type="RichTextLabel" parent="MarginContainer/VBoxContainer/MoreTraits" index="0"]
+
+modulate = Color( 1, 1, 1, 0.501961 )
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = true
+mouse_filter = 0
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+theme = ExtResource( 4 )
+bbcode_enabled = true
+bbcode_text = "Rumble.
+Earthquake?"
+visible_characters = -1
+percent_visible = 1.0
+meta_underlined = true
+tab_size = 4
+text = "Rumble.
+Earthquake?"
+scroll_active = true
+scroll_following = false
+selection_enabled = false
+override_selected_font_color = false
+_sections_unfolded = [ "BBCode", "Rect", "Theme", "Visibility" ]
+
+[node name="LessTraits" type="TextureRect" parent="MarginContainer/VBoxContainer" index="3"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_top = 160.0
+margin_right = 160.0
+margin_bottom = 240.0
+rect_min_size = Vector2( 120, 80 )
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 1
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+stretch_mode = 0
+_sections_unfolded = [ "Grow Direction", "Margin", "Rect" ]
+
+[node name="DialogText" type="RichTextLabel" parent="MarginContainer/VBoxContainer/LessTraits" index="0"]
+
+modulate = Color( 1, 1, 1, 0.501961 )
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = true
+mouse_filter = 0
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+theme = ExtResource( 4 )
+bbcode_enabled = true
+bbcode_text = "Rumble.
+Earthquake?"
+visible_characters = -1
+percent_visible = 1.0
+meta_underlined = true
+tab_size = 4
+text = "Rumble.
+Earthquake?"
+scroll_active = true
+scroll_following = false
+selection_enabled = false
+override_selected_font_color = false
+_sections_unfolded = [ "BBCode", "Margin", "Rect", "Theme", "Visibility" ]
+
+[node name="PlaceHolder2" type="TextureRect" parent="MarginContainer/VBoxContainer" index="4"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_top = 240.0
+margin_right = 160.0
+margin_bottom = 260.0
+rect_min_size = Vector2( 120, 20 )
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 1
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+stretch_mode = 0
+_sections_unfolded = [ "Grow Direction", "Margin", "Rect" ]
+
+[node name="QuitMenu" parent="MarginContainer/VBoxContainer" index="5" instance=ExtResource( 5 )]
+
+margin_top = 260.0
+margin_right = 160.0
+margin_bottom = 290.0
+_sections_unfolded = [ "Margin", "Rect" ]
+
+[connection signal="timeout" from="MarginContainer/VBoxContainer/DeathJoke/ShowTextDelay" to="." method="_on_ShowTextDelay_timeout"]
+
+[connection signal="timeout" from="MarginContainer/VBoxContainer/DeathJoke/SecondSentenceDelay" to="." method="_on_SecondSentenceDelay_timeout"]
+
+
